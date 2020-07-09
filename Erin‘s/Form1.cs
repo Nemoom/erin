@@ -23,6 +23,7 @@ namespace Erin_s
         {
             try
             {
+                CS_staffs = new List<CS_staff>();
                 DirectoryInfo folder = new DirectoryInfo(@"Q:\CNGrp095\FEC&I\Working Hours Management");
                 //获取文件夹下所有的文件
                 FileInfo[] fileList = folder.GetFiles();
@@ -30,7 +31,7 @@ namespace Erin_s
                 {
                     //判断文件的扩展名是否为 .gif
                     if (file.Extension == ".csv")
-                    {
+                    {                        
                         try
                         {
                             CS_staff aCS_staff = new CS_staff();
@@ -64,12 +65,12 @@ namespace Erin_s
                                             switch (mstr)
                                             {
                                                 case "上午":
-                                                    aCS_staff.workHours[dt.Month - 1, dt.Day - 1] = 4;
-                                                    aCS_staff.str_workHours[dt.Month - 1, dt.Day - 1] = "上午4";
+                                                    aCS_staff.workHours[dt.Month - 1, dt.Day - 1] = aCS_staff.workHours[dt.Month - 1, dt.Day - 1] + 4;
+                                                    aCS_staff.str_workHours[dt.Month - 1, dt.Day - 1] = aCS_staff.str_workHours[dt.Month - 1, dt.Day - 1] + "上午4";
                                                     break;
                                                 case "下午":
-                                                    aCS_staff.workHours[dt.Month - 1, dt.Day - 1] = 4;
-                                                    aCS_staff.str_workHours[dt.Month - 1, dt.Day - 1] = "下午4";
+                                                    aCS_staff.workHours[dt.Month - 1, dt.Day - 1] = aCS_staff.workHours[dt.Month - 1, dt.Day - 1] + 4;
+                                                    aCS_staff.str_workHours[dt.Month - 1, dt.Day - 1] = aCS_staff.str_workHours[dt.Month - 1, dt.Day - 1] + "下午4";
                                                     break;
                                                 case "上午&下午":
                                                     aCS_staff.workHours[dt.Month - 1, dt.Day - 1] = 8;
